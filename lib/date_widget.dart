@@ -40,14 +40,14 @@ class DateWidget extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
           color: selectionColor,
         ),
-        duration: const Duration(seconds: 1),
+        duration: const Duration(milliseconds: 700),
         child: Padding(
           padding: EdgeInsets.all(8),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: dateIsSelected
-                ? <Widget>[Padding(padding: EdgeInsets.only(top: 10)), Text(new DateFormat("E d MMM", locale).format(date).toUpperCase(), style: dateTextStyle!.copyWith(fontSize: 18))]
+                ? <Widget>[Text(new DateFormat("E d MMM", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 17))]
                 : <Widget>[
                     Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
                         style: monthTextStyle),
