@@ -228,7 +228,7 @@ class DatePickerController {
   }
 
   /// This function will animate the Timeline to the currently selected Date
-  void animateToSelection({duration = const Duration(milliseconds: 1500), curve = Curves.easeInOut}) {
+  void animateToSelection({duration = const Duration(milliseconds: 800), curve = Curves.easeOut}) {
     assert(_datePickerState != null, 'DatePickerController is not attached to any DatePicker View.');
 
     // animate to the current date
@@ -237,7 +237,7 @@ class DatePickerController {
 
   /// This function will animate to any date that is passed as an argument
   /// In case a date is out of range nothing will happen
-  void animateToDate(DateTime date, {duration = const Duration(milliseconds: 1500), curve = Curves.easeInOut}) {
+  void animateToDate(DateTime date, {duration = const Duration(milliseconds: 800), curve = Curves.easeOut}) {
     assert(_datePickerState != null, 'DatePickerController is not attached to any DatePicker View.');
 
     _datePickerState!._controller.animateTo(_calculateDateOffset(date), duration: duration, curve: curve);
@@ -245,7 +245,7 @@ class DatePickerController {
 
   /// This function will animate to any date that is passed as an argument
   /// this will also set that date as the current selected date
-  void setDateAndAnimate(DateTime date, {duration = const Duration(milliseconds: 1500), curve = Curves.easeInOut}) {
+  void setDateAndAnimate(DateTime date, {duration = const Duration(milliseconds: 800), curve = Curves.easeOut}) {
     assert(_datePickerState != null, 'DatePickerController is not attached to any DatePicker View.');
 
     _datePickerState!._controller.animateTo(_calculateDateOffset(date), duration: duration, curve: curve);
