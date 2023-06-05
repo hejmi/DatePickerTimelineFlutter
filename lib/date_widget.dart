@@ -48,11 +48,13 @@ class DateWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: dateIsSelected
                 ? <Widget>[
-                    ClipRect(
-                        child: Wrap(children: [
-                      Text(' ', style: monthTextStyle),
-                      Text(new DateFormat("E d MMM", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 17, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold))
-                    ]))
+                    Text(' ', style: monthTextStyle),
+                    AnimatedOpacity(
+                        opacity: 0,
+                        duration: const Duration(milliseconds: 700),
+                        curve: Curves.easeOut,
+                        child: Text(new DateFormat("E d MMM", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 17, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold))),
+                    Text(' ', style: dayTextStyle)
                   ]
                 : <Widget>[
                     Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
