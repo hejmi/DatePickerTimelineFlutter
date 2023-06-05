@@ -46,7 +46,7 @@ class DateWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: dateIsSelected
-                ? <Widget>[Text(''), Text(new DateFormat("E d MMM", locale).format(date).toUpperCase(), style: dateTextStyle), Text('')]
+                ? <Widget>[Positioned(top: 10, bottom: 10, child: Text(new DateFormat("E d MMM", locale).format(date).toUpperCase(), style: dateTextStyle!.copyWith(fontSize: 18)))]
                 : <Widget>[
                     Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
                         style: monthTextStyle),
