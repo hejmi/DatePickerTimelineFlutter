@@ -51,7 +51,7 @@ class DateWidget extends StatelessWidget {
                     ? <Widget>[
                         Text(' ', style: monthTextStyle),
                         Text(new DateFormat("EEEE", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 15, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold)),
-                        Text(new DateFormat("d MMM", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 15, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold))
+                        Text(new DateFormat("d MMM y", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 15, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold))
                       ]
                     : <Widget>[
                         Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
