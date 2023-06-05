@@ -45,16 +45,16 @@ class DateWidget extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              dateIsSelected
-                  ? Text('${date.day.toString()} ${new DateFormat("E", locale).format(date).toUpperCase()} ${new DateFormat("MMM", locale).format(date).toUpperCase()}', style: dayTextStyle)
-                  : Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
-                      style: monthTextStyle),
-              Text(date.day.toString(), // Date
-                  style: dateTextStyle),
-              Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
-                  style: dayTextStyle)
-            ],
+            children: dateIsSelected
+                ? <Widget>[Text(new DateFormat("E d M", locale).format(date).toUpperCase(), style: dayTextStyle)]
+                : <Widget>[
+                    Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
+                        style: monthTextStyle),
+                    Text(date.day.toString(), // Date
+                        style: dateTextStyle),
+                    Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
+                        style: dayTextStyle)
+                  ],
           ),
         ),
       ),
