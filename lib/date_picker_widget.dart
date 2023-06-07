@@ -185,7 +185,7 @@ class _DatePickerState extends State<DatePicker> {
                 : isSelected
                     ? selectedDayStyle
                     : widget.dayTextStyle,
-            width: isSelected ? 125 : widget.width,
+            width: isSelected ? 135 : widget.width,
             locale: widget.locale,
             selectionColor: isSelected ? widget.selectionColor : Colors.transparent,
             onDateSelected: (selectedDate) {
