@@ -48,7 +48,7 @@ class DateWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: dateIsSelected
-                    ? <Widget>[ TweenAnimationBuilder<double>(
+                    ? TweenAnimationBuilder<double>(
                       duration: Duration(milliseconds:500),
                       tween: Tween<double>(begin: 1, end: 15),
                       builder: (_, size, __) => {
@@ -57,7 +57,7 @@ class DateWidget extends StatelessWidget {
                         Text(new DateFormat("d MMM y", locale).format(date).toUpperCase(), style: TextStyle(fontSize: size, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold))
                       }
                     )
-                      ]
+                      
                     : <Widget>[
                         Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
                             style: monthTextStyle),
