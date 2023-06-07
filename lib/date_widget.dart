@@ -50,7 +50,7 @@ class DateWidget extends StatelessWidget {
                 children: dateIsSelected
                     ? <Widget>[ TweenAnimationBuilder<double>(
                       duration: Duration(milliseconds:500),
-                      tween: Tween<double>(begin: _size, end: _size),
+                      tween: Tween<double>(begin: 1, end: 15),
                       builder: (_, size, __) => {
                         Text(' ', style: monthTextStyle),
                         Text(new DateFormat("EEEE", locale).format(date).toUpperCase(), style: TextStyle(fontSize: size, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold)),
