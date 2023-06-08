@@ -262,6 +262,6 @@ class DatePickerController {
     final startDate = new DateTime(_datePickerState!.widget.startDate.year, _datePickerState!.widget.startDate.month, _datePickerState!.widget.startDate.day);
 
     int offset = date.difference(startDate).inDays;
-    return (offset * _datePickerState!.widget.width - ((165 - _datePickerState!.widget.width / 2))) + (offset * 6);
+    return (offset * _datePickerState!.widget.width - ((135 - _datePickerState!.widget.width / 2))) + (offset * 6);
   }
 }
