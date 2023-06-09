@@ -28,6 +28,12 @@ class DateWidget extends StatelessWidget {
     this.locale,
   });
 
+  checkYear() {
+    var chosenYear = DateFormat("y", locale).format(date);
+    var yearNow = DateFormat('y', locale).format(DateTime.now());
+    return chosenYear == yearNow;
+  }
+
   @override
   Widget build(BuildContext context) {
     return InkWell(
@@ -44,8 +50,10 @@ class DateWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
-                  style: monthTextStyle),
+              checkYear()
+                  ? Text(new DateFormat("MMM", locale).format(date).toUpperCase())
+                  : Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
+                      style: monthTextStyle),
               Text(date.day.toString(), // Date
                   style: dateTextStyle),
               Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
