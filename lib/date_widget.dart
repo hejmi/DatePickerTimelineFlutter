@@ -31,8 +31,7 @@ class DateWidget extends StatelessWidget {
   checkYear() {
     var chosenYear = DateFormat("y", locale).format(date);
     var yearNow = DateFormat('y', locale).format(DateTime.now());
-    print('chosen: $chosenYear, year now: $yearNow');
-    return chosenYear == yearNow;
+    return (yearNow != chosenYear ? false : true);
   }
 
   @override
@@ -53,7 +52,7 @@ class DateWidget extends StatelessWidget {
             children: <Widget>[
               checkYear()
                   ? Text(new DateFormat("MMM", locale).format(date).toUpperCase(), style: monthTextStyle)
-                  : Text(new DateFormat("MMM", locale).format(date).toUpperCase(), style: monthTextStyle),
+                  : Text(new DateFormat("MMM y", locale).format(date).toUpperCase(), style: monthTextStyle),
               Text(date.day.toString(), // Date
                   style: dateTextStyle),
               Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
