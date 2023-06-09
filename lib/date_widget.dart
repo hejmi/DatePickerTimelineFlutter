@@ -39,7 +39,7 @@ class DateWidget extends StatelessWidget {
     return InkWell(
       child: Container(
         width: width,
-        margin: EdgeInsets.all(2.0),
+        margin: EdgeInsets.all(3.0),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(8.0)),
           color: selectionColor,
@@ -52,7 +52,7 @@ class DateWidget extends StatelessWidget {
             children: <Widget>[
               checkYear()
                   ? Text(new DateFormat("MMM", locale).format(date).toUpperCase(), style: monthTextStyle)
-                  : Text(new DateFormat("MMM y", locale).format(date).toUpperCase(), style: monthTextStyle),
+                  : Text(new DateFormat("MMM 'yy", locale).format(date).toUpperCase(), style: monthTextStyle),
               Text(date.day.toString(), // Date
                   style: dateTextStyle),
               Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
