@@ -16,7 +16,6 @@ class DateWidget extends StatelessWidget {
   final Color selectionColor;
   final DateSelectionCallback? onDateSelected;
   final String? locale;
-  final bool dateIsSelected;
 
   DateWidget({
     required this.date,
@@ -24,7 +23,6 @@ class DateWidget extends StatelessWidget {
     required this.dayTextStyle,
     required this.dateTextStyle,
     required this.selectionColor,
-    required this.dateIsSelected,
     this.width,
     this.onDateSelected,
     this.locale,
@@ -33,37 +31,29 @@ class DateWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      child: AnimatedContainer(
-          width: width,
-          margin: EdgeInsets.all(3.0),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.all(Radius.circular(8.0)),
-            color: selectionColor,
+      child: Container(
+        width: width,
+        margin: EdgeInsets.all(3.0),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          color: selectionColor,
+        ),
+        child: Padding(
+          padding: EdgeInsets.all(8),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+              Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
+                  style: monthTextStyle),
+              Text(date.day.toString(), // Date
+                  style: dateTextStyle),
+              Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
+                  style: dayTextStyle)
+            ],
           ),
-          duration: const Duration(milliseconds: 700),
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: EdgeInsets.all(8),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: dateIsSelected
-                    ? <Widget>[
-                        Text(' ', style: monthTextStyle),
-                        Text(new DateFormat("EEEE", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 15, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold)),
-                        Text(new DateFormat("d MMM y", locale).format(date).toUpperCase(), style: TextStyle(fontSize: 15, fontStyle: FontStyle.normal, fontWeight: FontWeight.bold))
-                      ]
-                    : <Widget>[
-                        Text(new DateFormat("MMM", locale).format(date).toUpperCase(), // Month
-                            style: monthTextStyle),
-                        Text(date.day.toString(), // Date
-                            style: dateTextStyle),
-                        Text(new DateFormat("E", locale).format(date).toUpperCase(), // WeekDay
-                            style: dayTextStyle)
-                      ],
-              ),
-            ),
-          )),
+        ),
+      ),
       onTap: () {
         // Check if onDateSelected is not null
         if (onDateSelected != null) {
