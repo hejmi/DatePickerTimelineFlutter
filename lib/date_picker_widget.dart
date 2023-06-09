@@ -263,6 +263,7 @@ class DatePickerController {
 
     int offset = date.difference(startDate).inDays;
     double extra = offset < 2 ? 0 : 88;
+    print(offset);
 
     return (offset * (_datePickerState!.widget.width + 6)) + (offset * 0.64);
   }
